@@ -1,0 +1,17 @@
+.header {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+  transition: transform 0.3s ease-in-out;
+
+  &--hidden {
+    transform: translateY(-100%);
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+}

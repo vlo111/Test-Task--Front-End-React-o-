@@ -1,0 +1,118 @@
+@use '../../assets/styles/variables' as vars;
+
+.horizontalMenu {
+  position: sticky;
+  top: 0;
+  background-color: vars.$color-primary;
+  z-index: 1000;
+  padding: vars.$spacing-small;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  &.hidden {
+    transform: translateY(-100%);
+  }
+
+  .menuItems {
+    display: flex;
+    gap: vars.$spacing-medium;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      position: relative;
+
+      a {
+        color: vars.$color-bg;
+        text-decoration: none;
+        font-size: vars.$font-size-base;
+        padding: vars.$spacing-small;
+
+        &:hover {
+          color: vars.$color-secondary;
+        }
+      }
+    }
+
+    .hasSubmenu {
+      &:hover .submenu {
+        display: block;
+      }
+
+      .submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: vars.$color-bg;
+        list-style: none;
+        padding: vars.$spacing-small;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        li {
+          a {
+            color: vars.$color-text;
+
+            &:hover {
+              color: vars.$color-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 75%;
+  height: 100%;
+  background-color: vars.$color-primary;
+  z-index: 1000;
+  padding: vars.$spacing-medium;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  .close {
+    text-align: right;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .menuItems {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-bottom: vars.$spacing-medium;
+
+      a {
+        color: vars.$color-bg;
+        text-decoration: none;
+        font-size: vars.$font-size-base;
+
+        &:hover {
+          color: vars.$color-secondary;
+        }
+      }
+    }
+  }
+}
+
+.hamburger {
+  display: block;
+  font-size: 2rem;
+  cursor: pointer;
+
+  @media (min-width: vars.$breakpoint-small) {
+    display: none;
+  }
+}

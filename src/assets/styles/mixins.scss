@@ -1,0 +1,13 @@
+@use './variables' as vars;
+
+@mixin media($size) {
+  @if $size == small {
+    @media (max-width: vars.$breakpoint-small) {
+      @content;
+    }
+  } @else if $size == medium {
+    @media (max-width: vars.$breakpoint-medium) {
+      @content;
+    }
+  }
+}

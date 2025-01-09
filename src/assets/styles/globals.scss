@@ -1,0 +1,15 @@
+@use './variables' as vars;
+
+body {
+  margin: 0;
+  font-family: vars.$font-family;
+  font-size: vars.$font-size-base;
+  background-color: vars.$color-secondary;
+  color: vars.$color-text;
+}
+
+.layout {
+  display: grid;
+  grid-template-rows: vars.$size-header-height vars.$size-menu-height auto;
+  height: 100vh;
+}

@@ -1,0 +1,13 @@
+@import '../../assets/styles/variables';
+
+.layout {
+  display: grid;
+  grid-template-rows: $size-header-height auto $size-menu-height;
+  height: 100vh;
+}
+
+.body {
+  overflow-y: auto;
+  padding: $spacing-medium;
+  background-color: $color-secondary;
+}

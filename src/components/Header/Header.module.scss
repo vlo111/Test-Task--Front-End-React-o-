@@ -1,0 +1,10 @@
+@use '../../assets/styles/variables' as vars;
+
+.header {
+  background-color: vars.$color-primary;
+  height: vars.$size-header-height;
+  color: vars.$color-bg;
+  display: flex;
+  align-items: center;
+  padding: vars.$spacing-medium;
+}
