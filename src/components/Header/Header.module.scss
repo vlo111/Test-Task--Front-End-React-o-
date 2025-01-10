@@ -1,10 +1,21 @@
 @use '../../assets/styles/variables' as vars;
 
 .header {
-  background-color: vars.$color-primary;
+  background-color: vars.$color-bg;
+  color: vars.$color-primary;
   height: vars.$size-header-height;
-  color: vars.$color-bg;
   display: flex;
   align-items: center;
-  padding: vars.$spacing-medium;
+
+  .container {
+    max-width: 72.5rem;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+
+    h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+  }
 }

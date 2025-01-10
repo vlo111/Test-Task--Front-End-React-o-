@@ -1,16 +1,14 @@
+import React, {ReactNode} from "react";
 import Header from "../Header/Header";
-import Content from "../Content/Content";
-import Menu from "../Menu/Menu";
+import HorizontalMenu from "../Menu/HorizontalMenu";
 import styles from "./Layout.module.scss";
 
-const Layout = () => {
+const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
     return (
         <div className={styles.layout}>
             <Header />
-            <main className={styles.content}>
-                <Content />
-            </main>
-            <Menu />
+            <HorizontalMenu />
+            <main className={styles.main}>{children}</main>
         </div>
     );
 };

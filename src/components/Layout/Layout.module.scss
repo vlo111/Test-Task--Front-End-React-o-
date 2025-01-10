@@ -1,13 +1,12 @@
-@import '../../assets/styles/variables';
+@use '../../assets/styles/variables' as vars;
 
 .layout {
-  display: grid;
-  grid-template-rows: $size-header-height auto $size-menu-height;
-  height: 100vh;
-}
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 
-.body {
-  overflow-y: auto;
-  padding: $spacing-medium;
-  background-color: $color-secondary;
+  .main {
+    flex: 1;
+    padding: vars.$spacing-large;
+  }
 }
