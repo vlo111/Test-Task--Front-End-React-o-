@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {MENU_ITEMS, SUBMENU_ITEMS} from "../constants/menuConstants";
 import styles from "./Menu.module.scss";
+import DownSvg from '../../assets/icons/down.svg';
 
 const HorizontalMenu = () => {
     const [hidden, setHidden] = useState(false);
@@ -32,12 +33,16 @@ const HorizontalMenu = () => {
                     <ul className={styles.menuItems}>
                         {MENU_ITEMS.map((item) => (
                             <li key={item.label} className={styles.menuItem}>
-                                <a href={item.link}>{item.label}</a>
+                                <a href={item.link}>
+                                    <span>{item.label}</span>
+                                    <DownSvg/>
+                                </a>
                                 <ul className={styles.submenu}>
                                     {SUBMENU_ITEMS.map((submenu) => (
                                         <li key={submenu.label}>
                                             <a href={submenu.link}>
-                                                {submenu.label}
+                                                <span>{submenu.label}</span>
+                                                <DownSvg/>
                                             </a>
                                         </li>
                                     ))}

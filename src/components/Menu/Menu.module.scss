@@ -5,7 +5,7 @@
   top: 0;
   background-color: vars.$color-bg;
   z-index: 1000;
-  padding: 1.2rem 0;
+  height: 100%;
   transition: transform 0.3s ease-in-out;
   width: 1028px;
   margin: 0 auto;
@@ -15,10 +15,11 @@
   }
 
   .container {
-    max-width: 35rem;
+    max-width: 36rem;
     margin: 0 auto;
     display: flex;
     justify-content: space-evenly;
+    height: 100%;
 
     .menuItems {
       display: flex;
@@ -26,22 +27,39 @@
       list-style: none;
       margin: 0;
       padding: 0;
+      height: 100%;
 
       .menuItem {
         position: relative;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
 
         a {
           color: vars.$color-primary;
           text-decoration: none;
           font-size: vars.$font-size-base;
           font-weight: vars.$font-weight-base;
+          transition: all 0.2s linear;
           scale: 1;
-          transition: all 0.4s linear;
 
-          &:hover {
-            color: vars.$color-primary-hover;
-            scale: 1.1;
-            font-size: 16px;
+          span {
+            margin-right: 4px;
+          }
+
+          svg {
+            margin-top: 2px;
+            transition: all 0.2s linear;
+          }
+        }
+
+        &:hover {
+          color: vars.$color-primary-hover;
+          scale: 1.1;
+          font-size: 16px;
+
+          svg {
+            transition: all 0.2s linear;
           }
         }
 
@@ -53,22 +71,40 @@
           width: 11rem;
           padding: 1.25rem;
           position: absolute;
-          top: 200%;
+          top: 55px;
           left: 0;
           z-index: 100;
           border: 1px solid vars.$color-border;
 
+          li:not(:last-child) {
+            border-bottom: 1px solid vars.$color-border;
+          }
+
+
           li {
             padding: 0.6rem 0;
-            border-bottom: 1px solid vars.$color-border;
 
             a {
               color: vars.$color-text;
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
 
-              &:hover {
-                margin-left: 1rem;
-                color: vars.$color-menu-item-hover;
+              svg {
+                margin-top: 6px;
+                transform: rotate(275deg);
               }
+            }
+
+            &:hover {
+              a {
+                span {
+                  transition: all 0.5s linear;
+                  margin-left: 1rem;
+                  color: vars.$color-menu-item-hover;
+                }
+              }
+
             }
           }
         }
@@ -84,6 +120,7 @@
 
           li a {
             color: vars.$color-text;
+
             &:hover {
               color: vars.$color-primary-hover;
             }
