@@ -3,24 +3,6 @@
 .content {
   padding: 3rem 0 6rem;
 
-  .searchContainer {
-    margin-bottom: 2rem;
-
-    .searchInput {
-      width: 100%;
-      max-width: 30rem;
-      padding: 0.75rem 1rem;
-      border: 1px solid vars.$color-border;
-      border-radius: 4px;
-      font-size: 1rem;
-
-      &:focus {
-        outline: none;
-        border-color: vars.$color-primary;
-      }
-    }
-  }
-
   .grid {
     display: flex;
     flex-wrap: wrap;
@@ -46,9 +28,22 @@
     }
   }
 
-  .loading, .error {
+  .loading,
+  .error,
+  .noResults {
+    width: 100%;
     text-align: center;
-    padding: 2rem;
+    padding: 3rem;
     font-size: 1.2rem;
+    color: vars.$color-text;
+  }
+
+  .error {
+    color: vars.$color-primary;
+  }
+
+  .noResults {
+    grid-column: 1 / -1;
+    color: vars.$color-primary;
   }
 }
