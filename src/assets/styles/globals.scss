@@ -16,3 +16,10 @@ body {
     margin: 0 auto;
   }
 }
+
+@media (max-width: vars.$breakpoint-small) {
+  .container {
+    width: auto !important;
+    padding: 0 1rem;
+  }
+}

@@ -1,5 +1,6 @@
-import { IPost } from '../../../types/post.ts';
+import { IPost } from '../../../types';
 import styles from './Modal.module.scss';
+import CloseSvg from "../../../assets/icons/close.svg";
 
 interface PostPopupProps {
     post: IPost;
@@ -17,10 +18,10 @@ const PostPopup: React.FC<PostPopupProps> = ({ post, onClose }) => {
         <div className={styles.overlay} onClick={handleBackgroundClick}>
             <div className={styles.popup}>
                 <button className={styles.closeButton} onClick={onClose}>
-                    ×
+                    <CloseSvg />
                 </button>
                 <h2>{post.title}</h2>
-                <div className={styles.content}>
+                <div>
                     <img
                         src={post.img}
                         srcSet={`${post.img} 1x, ${post.img} 2x`}

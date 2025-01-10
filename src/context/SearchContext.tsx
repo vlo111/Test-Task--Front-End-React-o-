@@ -1,13 +1,7 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
+import {ISearchContextType} from "../types";
 
-interface SearchContextType {
-    searchQuery: string;
-    setSearchQuery: (query: string) => void;
-    isSearchVisible: boolean;
-    setIsSearchVisible: (visible: boolean) => void;
-}
-
-const SearchContext = createContext<SearchContextType | undefined>(undefined);
+const SearchContext = createContext<ISearchContextType | undefined>(undefined);
 
 export const SearchProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [searchQuery, setSearchQuery] = useState('');

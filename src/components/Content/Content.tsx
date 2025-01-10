@@ -1,74 +1,53 @@
 import { useState, useEffect } from 'react';
 import { useSearch } from '../../context/SearchContext';
-import { IPost } from '../../types/post';
+import { IPost } from '../../types';
+import { fetchPosts } from '../../utils/api.ts';
 import PostCard from '../Post/PostCard/PostCard';
-import PostPopup from '../Post/PostModal/PostModal';
+import PostModal from '../Post/PostModal/PostModal';
 import styles from './Content.module.scss';
 
 const Content = () => {
     const { searchQuery } = useSearch();
     const [posts, setPosts] = useState<IPost[]>([]);
-    const [filteredPosts, setFilteredPosts] = useState<IPost[]>([]);
     const [selectedPost, setSelectedPost] = useState<IPost | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    // Fetch posts on component mount
     useEffect(() => {
-        const fetchPosts = async () => {
+        const loadPosts = async () => {
             try {
                 setLoading(true);
-                const response = await fetch('https://cloud.codesupply.co/endpoint/react/data.json');
-                if (!response.ok) {
-                    throw new Error('Failed to fetch posts');
-                }
-                const data = await response.json();
+                const data = await fetchPosts();
                 setPosts(data);
-                setFilteredPosts(data);
             } catch (err) {
-                setError(err instanceof Error ? err.message : 'An error occurred');
+                setError(err instanceof Error ? err.message : 'Failed to load posts');
             } finally {
                 setLoading(false);
             }
         };
 
-        fetchPosts();
+        loadPosts();
     }, []);
 
-    // Filter posts whenever search query changes
-    useEffect(() => {
-        if (!posts.length) return;
-
-        const searchTerm = searchQuery.toLowerCase().trim();
-
-        if (searchTerm === '') {
-            setFilteredPosts(posts);
-            return;
-        }
-
-        const filtered = posts.filter(post =>
+    const filteredPosts = posts.filter(post => {
+        if (!searchQuery.trim()) return true;
+        const searchTerm = searchQuery.toLowerCase();
+        return (
             post.title.toLowerCase().includes(searchTerm) ||
             post.text.toLowerCase().includes(searchTerm)
         );
+    });
 
-        setFilteredPosts(filtered);
-    }, [searchQuery, posts]);
-
-    if (loading) {
-        return <div className={styles.loading}>Loading posts...</div>;
-    }
-
-    if (error) {
-        return <div className={styles.error}>Error: {error}</div>;
-    }
+    if (loading) return <div className={styles.loading}>Loading posts...</div>;
+    if (error) return <div className={styles.error}>{error}</div>;
 
     return (
         <div className={styles.content}>
             <div className={styles.grid}>
                 {filteredPosts.length > 0 ? (
-                    filteredPosts.map(post => (
+                    filteredPosts.map((post, index) => (
                         <PostCard
-                            key={post.date}
+                            key={post.date + index}
                             post={post}
                             onClick={() => setSelectedPost(post)}
                         />
@@ -81,7 +60,7 @@ const Content = () => {
             </div>
 
             {selectedPost && (
-                <PostPopup
+                <PostModal
                     post={selectedPost}
                     onClose={() => setSelectedPost(null)}
                 />

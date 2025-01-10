@@ -21,7 +21,7 @@
     height: 5rem;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
 
     .close {
       font-size: 2rem;
@@ -38,7 +38,7 @@
     padding: 0 0 vars.$spacing-large;
 
     li {
-      padding: vars.$spacing-semi-small;
+      padding: vars.$spacing-semi-small 0;
       border-top: 1px solid vars.$color-border;
 
       a {
@@ -51,6 +51,45 @@
       &:hover {
         cursor: pointer;
         background: vars.$color-primary-mobile-hover;
+      }
+    }
+  }
+
+  .menuItem {
+
+    a {
+      color: vars.$color-primary;
+      text-decoration: none;
+      font-size: vars.$font-size-base;
+      font-weight: vars.$font-weight-base;
+      transition: all 0.2s linear;
+      scale: 1;
+
+      span {
+        margin-right: 4px;
+      }
+
+      svg {
+        margin-top: 2px;
+        transition: all 0.2s linear;
+      }
+    }
+
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: vars.$color-bg;
+      padding: vars.$spacing-small;
+      z-index: 100;
+
+      li a {
+        color: vars.$color-text;
+
+        &:hover {
+          color: vars.$color-primary-hover;
+        }
       }
     }
   }
@@ -84,5 +123,13 @@
 
   @media (min-width: vars.$breakpoint-small) {
     display: none;
+  }
+}
+
+@media (max-width: vars.$breakpoint-small) {
+  .hamburger {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
   }
 }

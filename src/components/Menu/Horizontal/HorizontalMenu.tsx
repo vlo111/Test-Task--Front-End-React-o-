@@ -9,19 +9,16 @@ const HorizontalMenu = () => {
     const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
 
     useEffect(() => {
-        let lastScrollY = window.scrollY;
         let ticking = false;
 
         const updateMenuState = () => {
             const currentScrollY = window.scrollY;
             const currentDirection = currentScrollY > prevScrollY ? 'down' : 'up';
 
-            // Update scroll direction
             if (currentDirection !== scrollDirection) {
                 setScrollDirection(currentDirection);
             }
 
-            // Menu state logic
             if (currentScrollY <= 0) {
                 setMenuState('default');
             } else if (currentScrollY > 200) {

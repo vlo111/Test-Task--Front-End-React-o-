@@ -2,7 +2,6 @@
 
 .card {
   background: white;
-  border: 1px solid vars.$color-border;
   cursor: pointer;
   transition: transform 0.2s ease;
 
@@ -12,7 +11,7 @@
 
   .imageWrapper {
     position: relative;
-    padding-top: 66.67%; // 3:2 aspect ratio
+    padding-top: 66.67%;
     overflow: hidden;
 
     img {
@@ -26,17 +25,24 @@
   }
 
   .content {
-    padding: 1.5rem;
+    margin-top: 1rem;
 
     .title {
       font-size: 1.5rem;
-      margin: 0 0 1rem;
+    }
+
+    .tags {
+      color: vars.$color-tags;
     }
 
     .description {
       font-size: 1rem;
       color: vars.$color-text;
-      margin: 0 0 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .meta {
@@ -44,12 +50,14 @@
       gap: 1rem;
       font-size: 0.875rem;
       color: vars.$color-primary;
+      margin: 1rem 0 0;
 
-      span {
-        &:not(:last-child):after {
-          content: '•';
-          margin-left: 1rem;
-        }
+      .auter {
+        font-weight: bold;
+      }
+
+      .date, .views {
+        color: vars.$color-date;
       }
     }
   }

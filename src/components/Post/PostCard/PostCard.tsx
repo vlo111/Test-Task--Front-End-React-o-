@@ -1,4 +1,4 @@
-import { IPost } from '../../../types/post';
+import { IPost } from '../../../types';
 import styles from './PostCard.module.scss';
 
 interface PostCardProps {
@@ -18,13 +18,14 @@ const PostCard: React.FC<PostCardProps> = ({ post, onClick }) => {
                 />
             </div>
             <div className={styles.content}>
+                <span className={styles.tags}>{post.tags}</span>
                 <h2 className={styles.title}>{post.title}</h2>
-                <p className={styles.description}>{post.text}</p>
                 <div className={styles.meta}>
-                    <span>{post.date}</span>
-                    <span>{post.autor}</span>
-                    <span>{post.text} Comments</span>
+                    <span className={styles.auter}>{post.autor}</span>
+                    <span className={styles.date}>{post.date}</span>
+                    <span className={styles.views}>{post.views} Views</span>
                 </div>
+                <p className={styles.description}>{post.text}</p>
             </div>
         </article>
     );
