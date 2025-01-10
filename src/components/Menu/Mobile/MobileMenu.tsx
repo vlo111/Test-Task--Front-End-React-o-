@@ -1,6 +1,6 @@
 import { useState } from "react";
-import styles from "./Menu.module.scss";
-import {MENU_ITEMS, SUBMENU_ITEMS} from "../constants/menuConstants.ts";
+import styles from "./MobileMenu.module.scss";
+import {MENU_ITEMS, SUBMENU_ITEMS} from "../../constants/menuConstants.ts";
 
 const MobileMenu = () => {
     const [isOpen, setIsOpen] = useState(false);

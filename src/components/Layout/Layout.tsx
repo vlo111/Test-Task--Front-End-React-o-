@@ -1,6 +1,6 @@
 import React, {ReactNode} from "react";
 import Header from "../Header/Header";
-import HorizontalMenu from "../Menu/HorizontalMenu";
+import HorizontalMenu from "../Menu/Horizontal/HorizontalMenu.tsx";
 import styles from "./Layout.module.scss";
 
 const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {

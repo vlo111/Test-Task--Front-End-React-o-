@@ -1,4 +1,4 @@
-@use '../../assets/styles/variables' as vars;
+@use '../../../assets/styles/variables' as vars;
 
 .horizontalMenu {
   position: sticky;
@@ -80,7 +80,6 @@
             border-bottom: 1px solid vars.$color-border;
           }
 
-
           li {
             padding: 0.6rem 0;
 
@@ -104,7 +103,6 @@
                   color: vars.$color-menu-item-hover;
                 }
               }
-
             }
           }
         }
@@ -136,103 +134,8 @@
   border-bottom: 1px solid vars.$color-border;
 }
 
-.mobileMenu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 75%;
-  height: 100%;
-  background-color: vars.$color-bg;
-  z-index: 1000;
-  padding: 0 vars.$spacing-small;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease-in-out;
-  border-right: 1px solid vars.$color-border;
-
-  &.open {
-    transform: translateX(0);
-  }
-
-  .closeContainer {
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-
-    .close {
-      font-size: 2rem;
-      color: vars.$color-primary;
-      cursor: pointer;
-      user-select: none;
-    }
-  }
-
-  .menuItems {
-    list-style: none;
-    margin: 0;
-    overflow-y: auto;
-    padding: 0 0 vars.$spacing-large;
-
-    li {
-      padding: vars.$spacing-semi-small;
-      border-top: 1px solid vars.$color-border;
-
-      a {
-        color: vars.$color-primary;
-        text-decoration: none;
-        font-size: vars.$font-size-base;
-        font-weight: vars.$font-weight-base;
-      }
-
-      &:hover {
-        cursor: pointer;
-        background: vars.$color-primary-mobile-hover;
-      }
-    }
-  }
-
-  .submenu {
-    list-style: none;
-    margin: 0;
-    padding: 0 0 0 vars.$spacing-medium;
-
-    .submenuItem {
-      margin-bottom: vars.$spacing-medium;
-
-      a {
-        color: vars.$color-primary;
-        text-decoration: none;
-        font-size: vars.$font-size-base;
-        font-weight: vars.$font-weight-base;
-
-        &:hover {
-          color: vars.$color-primary-hover;
-        }
-      }
-    }
-  }
-}
-
-.hamburger {
-  display: block;
-  font-size: 2rem;
-  cursor: pointer;
-
-  @media (min-width: vars.$breakpoint-small) {
-    display: none;
-  }
-}
-
 @media (max-width: vars.$breakpoint-small) {
   .horizontalMenu {
     display: none;
-  }
-
-  .mobileMenu {
-    transform: translateX(-100%);
-  }
-
-  .mobileMenu.open {
-    transform: translateX(0);
   }
 }

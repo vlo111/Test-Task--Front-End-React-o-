@@ -1,6 +1,6 @@
-import HorizontalMenu from "./HorizontalMenu";
-import MobileMenu from "./MobileMenu";
-import styles from "./Menu.module.scss";
+import HorizontalMenu from "./Horizontal/HorizontalMenu.tsx";
+import MobileMenu from "./Mobile/MobileMenu.tsx";
+import styles from "./Horizontal/HorizontalMenu.module.scss";
 
 const Menu = () => (
     <>

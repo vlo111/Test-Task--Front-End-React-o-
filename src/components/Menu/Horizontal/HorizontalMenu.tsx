@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
-import {MENU_ITEMS, SUBMENU_ITEMS} from "../constants/menuConstants";
-import styles from "./Menu.module.scss";
-import DownSvg from '../../assets/icons/down.svg';
+import {MENU_ITEMS, SUBMENU_ITEMS} from "../../constants/menuConstants.ts";
+import styles from "./HorizontalMenu.module.scss";
+import DownSvg from '../../../assets/icons/down.svg';
 
 const HorizontalMenu = () => {
     const [hidden, setHidden] = useState(false);
