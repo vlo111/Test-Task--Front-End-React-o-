@@ -5,10 +5,10 @@
   top: 0;
   background-color: vars.$color-bg;
   z-index: 1000;
-  padding: vars.$spacing-small 0;
+  padding: 1.2rem 0;
   transition: transform 0.3s ease-in-out;
-  border-top: 1px solid vars.$color-border;
-  border-bottom: 1px solid vars.$color-border;
+  width: 1028px;
+  margin: 0 auto;
 
   &.hidden {
     transform: translateY(-100%);
@@ -34,9 +34,42 @@
           color: vars.$color-primary;
           text-decoration: none;
           font-size: vars.$font-size-base;
+          font-weight: vars.$font-weight-base;
+          scale: 1;
+          transition: all 0.4s linear;
 
           &:hover {
-            color: vars.$color-secondary;
+            color: vars.$color-primary-hover;
+            scale: 1.1;
+            font-size: 16px;
+          }
+        }
+
+        &:hover .submenu {
+          list-style: none;
+          margin: 0;
+          overflow-y: auto;
+          display: block;
+          width: 11rem;
+          padding: 1.25rem;
+          position: absolute;
+          top: 200%;
+          left: 0;
+          z-index: 100;
+          border: 1px solid vars.$color-border;
+
+          li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid vars.$color-border;
+
+            a {
+              color: vars.$color-text;
+
+              &:hover {
+                margin-left: 1rem;
+                color: vars.$color-menu-item-hover;
+              }
+            }
           }
         }
 
@@ -46,30 +79,24 @@
           top: 100%;
           left: 0;
           background-color: vars.$color-bg;
-          list-style: none;
           padding: vars.$spacing-small;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          z-index: 100;
 
-          li {
-            a {
-              color: vars.$color-text;
-              &:hover {
-                color: vars.$color-primary;
-              }
+          li a {
+            color: vars.$color-text;
+            &:hover {
+              color: vars.$color-primary-hover;
             }
           }
-
-          &.show {
-            display: block;
-          }
-        }
-
-        &:hover .submenu {
-          display: block;
         }
       }
     }
   }
+}
+
+.horizontalLines {
+  border-top: 1px solid vars.$color-border;
+  border-bottom: 1px solid vars.$color-border;
 }
 
 .mobileMenu {
@@ -78,35 +105,71 @@
   left: 0;
   width: 75%;
   height: 100%;
-  background-color: vars.$color-primary;
+  background-color: vars.$color-bg;
   z-index: 1000;
-  padding: vars.$spacing-medium;
-  transform: translateX(-100%); /* Hidden initially */
+  padding: 0 vars.$spacing-small;
+  transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
+  border-right: 1px solid vars.$color-border;
 
   &.open {
     transform: translateX(0);
   }
 
-  .close {
-    text-align: right;
-    font-size: 2rem;
-    cursor: pointer;
+  .closeContainer {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .close {
+      font-size: 2rem;
+      color: vars.$color-primary;
+      cursor: pointer;
+      user-select: none;
+    }
   }
 
   .menuItems {
     list-style: none;
     margin: 0;
-    padding: 0;
+    overflow-y: auto;
+    padding: 0 0 vars.$spacing-large;
 
     li {
-      margin-bottom: vars.$spacing-medium;
+      padding: vars.$spacing-semi-small;
+      border-top: 1px solid vars.$color-border;
+
       a {
-        color: vars.$color-bg;
+        color: vars.$color-primary;
         text-decoration: none;
         font-size: vars.$font-size-base;
+        font-weight: vars.$font-weight-base;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background: vars.$color-primary-mobile-hover;
+      }
+    }
+  }
+
+  .submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 vars.$spacing-medium;
+
+    .submenuItem {
+      margin-bottom: vars.$spacing-medium;
+
+      a {
+        color: vars.$color-primary;
+        text-decoration: none;
+        font-size: vars.$font-size-base;
+        font-weight: vars.$font-weight-base;
+
         &:hover {
-          color: vars.$color-secondary;
+          color: vars.$color-primary-hover;
         }
       }
     }

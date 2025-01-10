@@ -1,7 +1,7 @@
 @use '../../assets/styles/variables' as vars;
 
 .content {
-  padding: vars.$spacing-medium;
+  padding: 3rem 0 6rem;
   overflow-y: auto;
-  background-color: vars.$color-bg;
+  height: 80%;
 }

@@ -33,17 +33,15 @@ const HorizontalMenu = () => {
                         {MENU_ITEMS.map((item) => (
                             <li key={item.label} className={styles.menuItem}>
                                 <a href={item.link}>{item.label}</a>
-                                {item.label === 'Post' && (
-                                    <ul className={styles.submenu}>
-                                        {SUBMENU_ITEMS.map((submenu) => (
-                                            <li key={submenu.label}>
-                                                <a href={submenu.link}>
-                                                    {submenu.label}
-                                                </a>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                )}
+                                <ul className={styles.submenu}>
+                                    {SUBMENU_ITEMS.map((submenu) => (
+                                        <li key={submenu.label}>
+                                            <a href={submenu.link}>
+                                                {submenu.label}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
                             </li>
                         ))}
                     </ul>

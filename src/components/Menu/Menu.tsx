@@ -3,8 +3,10 @@ import MobileMenu from "./MobileMenu";
 import styles from "./Menu.module.scss";
 
 const Menu = () => (
-    <div className={styles.menu}>
-        <HorizontalMenu />
+    <div>
+        <div className={styles.horizontalLines}>
+            <HorizontalMenu />
+        </div>
         <MobileMenu />
     </div>
 );

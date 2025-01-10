@@ -10,4 +10,9 @@ body {
   display: grid;
   grid-template-rows: vars.$size-header-height vars.$size-menu-height auto;
   height: 100vh;
+
+  .container, .header, .menu {
+    width: 1028px;
+    margin: 0 auto;
+  }
 }
