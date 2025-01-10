@@ -1,0 +1,56 @@
+@use '../../../assets/styles/variables' as vars;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  padding: 1rem;
+
+  .popup {
+    background: white;
+    padding: 2rem;
+    border-radius: 4px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+
+    .closeButton {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      line-height: 1;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin: 0 0 1.5rem;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 1.5rem;
+    }
+
+    .meta {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      color: vars.$color-primary;
+    }
+  }
+}

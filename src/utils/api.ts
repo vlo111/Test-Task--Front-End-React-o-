@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { IPost } from '../types/Post';
+// import { IPost } from '../types/IPost';
 
-export const fetchPosts = async (): Promise<IPost[]> => {
-    const response = await axios.get<IPost[]>('https://cloud.codesupply.co/endpoint/react/data.json');
+export const fetchPosts = async (): Promise<[]> => {
+    const response = await axios.get<[]>('https://cloud.codesupply.co/endpoint/react/data.json');
     return response.data;
 };

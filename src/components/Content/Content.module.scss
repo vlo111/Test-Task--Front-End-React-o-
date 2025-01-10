@@ -2,6 +2,53 @@
 
 .content {
   padding: 3rem 0 6rem;
-  overflow-y: auto;
-  height: 80%;
+
+  .searchContainer {
+    margin-bottom: 2rem;
+
+    .searchInput {
+      width: 100%;
+      max-width: 30rem;
+      padding: 0.75rem 1rem;
+      border: 1px solid vars.$color-border;
+      border-radius: 4px;
+      font-size: 1rem;
+
+      &:focus {
+        outline: none;
+        border-color: vars.$color-primary;
+      }
+    }
+  }
+
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+
+    > * {
+      flex: 1 1 calc(33.333% - 20px);
+      min-width: 300px;
+    }
+
+    @media (max-width: 1024px) {
+      > * {
+        flex: 1 1 calc(50% - 20px);
+      }
+    }
+
+    @media (max-width: vars.$breakpoint-small) {
+      > * {
+        flex: 1 1 100%;
+      }
+    }
+  }
+
+  .loading, .error {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+  }
 }
